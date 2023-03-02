@@ -1,0 +1,25 @@
+services:
+    db:
+        image: postgres:10-alpine
+        ports:
+        - "5432:5432"
+        environment:
+            POSTGRES_USER: cw
+            POSTGRES_PASSWORD: cwpw
+            POSTGRES_DB: user
+    redis:
+        image: redis
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8080:8080
+    web:
+        build: .
+        ports:
+            - "8000:8000"
+        volumes:
+            - .:/code
+        depends_on:
+            - redis
+            - db

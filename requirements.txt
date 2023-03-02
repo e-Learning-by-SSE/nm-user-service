@@ -1,0 +1,10 @@
+flask
+redis
+psycopg2-binary
+sqlalchemy
+flask-restx
+marshmallow
+connexion[swagger-ui]
+flask_marshmallow
+flask_sqlalchemy
+marshmallow-sqlalchemy
